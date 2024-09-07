@@ -2,17 +2,20 @@
     height: 60px;
     display: flex;
     align-items: center;
-    background-color:limegreen;
+    background-color:blanchedalmond;
+    border-color: black;
+    border-width: 1cm;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .header_logo {
-    width: 100px;
+    width: 65px;
     object-fit: contain;
     margin: 0 20px;
-    margin-top: 18px;
+    margin-top: 6px;
+    margin-bottom: 8px;
 }
 .header_search{
     display: flex;

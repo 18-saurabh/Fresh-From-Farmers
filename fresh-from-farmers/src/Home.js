@@ -1,22 +1,19 @@
 import React from "react";
 import "./Home.css";
 import Product from "./Product";
+import FFFBanner from "./FFFBanner.jpg";
 function Home() {
   return (
     <div className="home">
       <div className="home_container">
-        <img
-          className="home_image"
-          src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG23/TVs/manishbanjare/Prime_Vedio_banner_1242x450.png"
-          alt="framFreshBanner"
-        ></img>
+        <img className="home_image" src={FFFBanner} alt="framFreshBanner"></img>
         <div className="home_row">
           <Product
             id="12024"
             title="Onion ₹20/kg"
             price={20}
             image={
-              "https://m.media-amazon.com/images/I/51DJ-9xkuQL._AC_UF1000,1000_QL80_.jpg"
+              "https://img.freepik.com/free-vector/realistic-red-onion-composition-with-fresh-slices-unpeeled-bulb-with-green-sprouts-transparent-background-vector-illustration_1284-74941.jpg?t=st=1725698206~exp=1725701806~hmac=51456527d5fa1f16bf2b5b038b9bba0b582fba61c9cf2c169f115663fcb2ac3e&w=740"
             }
             rating={5}
           ></Product>

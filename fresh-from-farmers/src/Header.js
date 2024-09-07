@@ -2,12 +2,13 @@ import React from "react";
 import "./Header.css";
 import SearchSharp from "@mui/icons-material/SearchSharp";
 import ShoppingBasketTwoTone from "@mui/icons-material/ShoppingBasketTwoTone";
+import Logo from "./Logo.png";
 function Header() {
   return (
     <div className="header">
       <img
         className="header_logo"
-        src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+        src={Logo}
         alt="AmazonLogo"
       />
       <div className="header_search">
