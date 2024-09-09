@@ -13,7 +13,7 @@ function Home() {
             title="Onion ₹20/kg"
             price={20}
             image={
-              "https://img.freepik.com/free-vector/realistic-red-onion-composition-with-fresh-slices-unpeeled-bulb-with-green-sprouts-transparent-background-vector-illustration_1284-74941.jpg?t=st=1725698206~exp=1725701806~hmac=51456527d5fa1f16bf2b5b038b9bba0b582fba61c9cf2c169f115663fcb2ac3e&w=740"
+              "https://png.pngtree.com/png-clipart/20231003/original/pngtree-three-fresh-red-onion-bulbs-in-stack-isolated-with-clipping-path-png-image_13246826.png"
             }
             rating={5}
           ></Product>
@@ -21,8 +21,17 @@ function Home() {
             id="22024"
             title="Potato ₹30/Kg"
             price={30}
-            image={"https://m.media-amazon.com/images/I/313dtY-LOEL.jpg"}
+            image={"https://freepngimg.com/save/14917-potato-png-pic/798x452"}
             rating={3}
+          ></Product>
+          <Product
+            id="12024"
+            title="Onion ₹20/kg"
+            price={20}
+            image={
+              "https://png.pngtree.com/png-clipart/20221008/original/pngtree-red-onion-vector-image-png-image_8666150.png"
+            }
+            rating={5}
           ></Product>
         </div>
         <div className="home_row">
@@ -31,7 +40,7 @@ function Home() {
             title="Tomato ₹30/kg"
             price={30}
             image={
-              "https://t0.gstatic.com/licensed-image?q=tbn:ANd9GcQWKEIys2Gmiyd9agP5sVK8ouyT8NlC5_uY94W4RUNSJp-EZqADZFFd8HoB59Q2MbDC"
+              "https://png.pngtree.com/png-vector/20230903/ourmid/pngtree-fruit-fresh-tomato-png-image_9959799.png"
             }
             rating={5}
           ></Product>
@@ -40,18 +49,18 @@ function Home() {
             title="Spinach ₹40/Kg"
             price={40}
             image={
-              "https://images.moneycontrol.com/static-mcnews/2023/07/Health-benefits-of-spinach.jpg?impolicy=website&width=1600&height=900"
+              "https://png.pngtree.com/png-vector/20240804/ourmid/pngtree-organic-fresh-spinach-in-a-bowl-isolated-on-transparent-background-png-image_13135913.png"
             }
             rating={3}
           ></Product>
           <Product
-            id="52024"
-            title="Ginger ₹60/kg"
-            price={60}
+            id="42024"
+            title="Spinach ₹40/Kg"
+            price={40}
             image={
-              "https://www.allrecipes.com/thmb/1Ke9oFYyqp2CvSVlaOV-nsPIKQc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ALR-what-is-ginger-20ed1f436bee4c4085b009756c8bc4db.jpg"
+              "https://png.pngtree.com/png-vector/20240804/ourmid/pngtree-organic-fresh-spinach-in-a-bowl-isolated-on-transparent-background-png-image_13135913.png"
             }
-            rating={5}
+            rating={3}
           ></Product>
         </div>
         <div className="home_row">
@@ -60,7 +69,25 @@ function Home() {
             title="Garlic ₹120/kg"
             price={120}
             image={
-              "https://static.toiimg.com/thumb/msid-105445525,width-1280,height-720,resizemode-4/105445525.jpg"
+              "https://static.vecteezy.com/system/resources/thumbnails/034/039/692/small/fresh-garlic-bulbs-in-stack-in-bamboo-wooden-basket-isolated-with-clipping-path-in-file-format-png.png"
+            }
+            rating={5}
+          ></Product>
+          <Product
+            id="62024"
+            title="Garlic ₹120/kg"
+            price={120}
+            image={
+              "https://static.vecteezy.com/system/resources/thumbnails/034/039/692/small/fresh-garlic-bulbs-in-stack-in-bamboo-wooden-basket-isolated-with-clipping-path-in-file-format-png.png"
+            }
+            rating={5}
+          ></Product>
+          <Product
+            id="62024"
+            title="Garlic ₹120/kg"
+            price={120}
+            image={
+              "https://static.vecteezy.com/system/resources/thumbnails/034/039/692/small/fresh-garlic-bulbs-in-stack-in-bamboo-wooden-basket-isolated-with-clipping-path-in-file-format-png.png"
             }
             rating={5}
           ></Product>

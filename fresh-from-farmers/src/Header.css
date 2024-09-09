@@ -2,37 +2,53 @@
     height: 60px;
     display: flex;
     align-items: center;
-    background-color:blanchedalmond;
-    border-color: black;
-    border-width: 1cm;
+    background-color:white;
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 2px double black;
+    border-radius: 5px; 
+    background-color: white;
 }
 
 .header_logo {
-    width: 65px;
+    width: 50px;
     object-fit: contain;
     margin: 0 20px;
     margin-top: 6px;
     margin-bottom: 8px;
+    border: 2px double lightgreen;
+    border-radius: 50%;
+    background-color: white;
 }
 .header_search{
     display: flex;
     flex: 1;
     align-items: center;
-    border-radius: 24px;
+    border-radius: 25px;
+}
+.header_searchInput::placeholder {
+    color: grey;
+    /* Gray color for the placeholder text */
+    font-family: sans-serif;
+    font-size: 15px;
+    font-style: oblique;
+    /* Optional: italic text */
 }
 .header_searchInput {
+    background-color: lightgoldenrodyellow;
+    border: 0.1px  groove black;
+    border-radius: 5px;
     height: 12px;
     padding: 10px;
-    border: none;
     width: 100%;
 }
 .header_searchIcon{
     padding: 5px;
     height: 22px !important;
-    background-color: lightsalmon;
+    background-color: #febd69;
+    border: 0.1px outset black;
+    border-radius: 5px;
 }
 .header_nav {
     display: flex;

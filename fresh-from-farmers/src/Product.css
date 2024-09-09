@@ -8,7 +8,9 @@
     width: 100%;
     max-height: 400px;
     min-width: 100px;
-    background-color: blanchedalmond;
+    border: 2px solid lavender ;
+    border-radius: 25px;
+    background-color: white;
     z-index: 1;
     position: relative;
 }
@@ -44,12 +46,12 @@
 
 .product>button {
     margin-top: 10px;
-    background-color: rgb(247, 189, 42);
+    background-color: #febd69;
     border: 1px solid;
     color: black;
 }
 
 .product>button:hover {
-    background-color: #927324;
+    background-color: whitesmoke;
 }
 

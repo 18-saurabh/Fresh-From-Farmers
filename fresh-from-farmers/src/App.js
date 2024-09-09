@@ -9,6 +9,7 @@ function App() {
     // BEM
     <Router>
       <div className="app">
+        
         <Header />
         <Routes>
           <Route path="/checkout" element={[<Checkout />]} />

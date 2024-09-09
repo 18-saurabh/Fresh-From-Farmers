@@ -2,17 +2,20 @@ import React from "react";
 import "./Header.css";
 import SearchSharp from "@mui/icons-material/SearchSharp";
 import ShoppingBasketTwoTone from "@mui/icons-material/ShoppingBasketTwoTone";
+import {Link} from "react-router-dom";
 import Logo from "./Logo.png";
 function Header() {
   return (
     <div className="header">
-      <img
-        className="header_logo"
-        src={Logo}
-        alt="AmazonLogo"
-      />
+      <Link to={"/"}>
+        <img className="header_logo" src={Logo} alt="FreshFromFarmersLogo" />
+      </Link>
       <div className="header_search">
-        <input className="header_searchInput" type="text" />
+        <input
+          className="header_searchInput"
+          type="text"
+          placeholder="Seacrh FreshFromFarmers"
+        />
         <SearchSharp className="header_searchIcon" />
       </div>
       <div className="header_nav">
@@ -28,10 +31,12 @@ function Header() {
           <span className="header_optionLineOne">Your</span>
           <span className="header_optionLineTwo">Prime</span>
         </div>
-        <div className="header_optionBasket">
-          <ShoppingBasketTwoTone></ShoppingBasketTwoTone>
-          <span className="header_optionLineTwo header_basketCount">0</span>
-        </div>
+        <Link to={"/checkout"}>
+          <div className="header_optionBasket">
+            <ShoppingBasketTwoTone></ShoppingBasketTwoTone>
+            <span className="header_optionLineTwo header_basketCount">0</span>
+          </div>
+        </Link>
       </div>
     </div>
   );
