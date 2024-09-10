@@ -21,7 +21,7 @@ function Home() {
             id="22024"
             title="Potato ₹30/Kg"
             price={30}
-            image={"https://freepngimg.com/save/14917-potato-png-pic/798x452"}
+            image={"https://www.freeiconspng.com/uploads/potato-png-0.png"}
             rating={3}
           ></Product>
           <Product
