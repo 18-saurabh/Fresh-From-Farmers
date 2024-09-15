@@ -13,10 +13,10 @@ function Header() {
      if (user) {
        auth
          .signOut()
-        //  .then(() => {
-        //    navigate("/"); // Redirect to login page after sign out
-        //  })
-        //  .catch((error) => console.log(error));
+         .then(() => {
+           navigate("/"); // Redirect to login page after sign out
+         })
+         .catch((error) => console.log(error));
      }
    };
   return (

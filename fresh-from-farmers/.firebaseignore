@@ -1,0 +1,21 @@
+# Ignore node_modules to avoid uploading dependencies
+
+node_modules
+
+# Ignore .git directory (Git version control system files)
+
+.git
+
+# Ignore temporary or development-related files
+
+_.log
+_.cache
+
+# Ignore build directory if you're using a framework that generates it elsewhere
+
+build/
+dist/
+
+# Ignore specific files or folders
+
+.env
