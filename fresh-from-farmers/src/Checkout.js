@@ -36,6 +36,7 @@ function Checkout() {
           alt="ad.."
         />
         <div>
+          <h3>Hello,{user?.email}</h3>
           <h2 className="checkout_title">Your shopping basket</h2>
           {groupedBasket?.length === 0 ? (
             <div>

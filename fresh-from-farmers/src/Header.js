@@ -2,11 +2,23 @@ import React from "react";
 import "./Header.css";
 import SearchSharp from "@mui/icons-material/SearchSharp";
 import ShoppingBasketTwoTone from "@mui/icons-material/ShoppingBasketTwoTone";
-import {Link} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
 import Logo from "./Logo.png";
 import { useStateValue } from "./StateProvider";
+import {auth} from "./firebase";
 function Header() {
-  const[{basket},dispatch]=useStateValue();
+  const[{basket,user},dispatch]=useStateValue();
+   const navigate = useNavigate();
+   const handleAuthentication = () => {
+     if (user) {
+       auth
+         .signOut()
+        //  .then(() => {
+        //    navigate("/"); // Redirect to login page after sign out
+        //  })
+        //  .catch((error) => console.log(error));
+     }
+   };
   return (
     <div className="header">
       <Link to={"/"}>
@@ -21,11 +33,13 @@ function Header() {
         <SearchSharp className="header_searchIcon" />
       </div>
       <div className="header_nav">
-        <Link to={"./login"}>
-          <div className="header_option">
-            <span className="header_optionLineOne">Hello</span>
+        <Link to={!user && "./login"}>
+          <div onClick={handleAuthentication} className="header_option">
+            <span className="header_optionLineOne">
+              Hello {!user ? "Guest" : user.email}
+            </span>
             <span className="header_optionLineTwo">
-              Sign In
+              {user ? "Sign Out" : "Sign In"}
             </span>
           </div>
         </Link>
