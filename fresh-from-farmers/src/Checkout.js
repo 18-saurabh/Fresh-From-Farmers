@@ -26,7 +26,6 @@ function Checkout() {
 
   // Group basket items by id
   const groupedBasket = groupBasketItems(basket);
-
   return (
     <div className="checkout">
       <div className="checkout_left">
