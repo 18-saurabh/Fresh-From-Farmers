@@ -2,16 +2,37 @@
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease; /* Add opacity transition */
+  opacity: 1; /* Default opacity */
 }
+
+/* Hover effect */
+.checkoutProduct:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Transition for removing an item (fade-out effect) */
+
+
+
 .checkoutProduct_info {
   padding-left: 20px;
 }
+
 .checkoutProduct_info > button {
   background: #f0c14b;
   border: 1px solid;
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
+  transition: background-color 0.3s ease; /* Add transition for button hover effect */
+}
+
+/* Hover effect on the Remove from Basket button */
+.checkoutProduct_info > button:hover {
+  background-color: #ddb347; /* Darker shade on hover */
+  cursor: pointer;
 }
 
 .checkoutProduct_image {
@@ -19,9 +40,11 @@
   width: 180px;
   height: 180px;
 }
+
 .checkoutProduct_rating {
   display: flex;
 }
+
 .checkoutProduct_title {
   font-size: 17px;
   font-weight: 800;

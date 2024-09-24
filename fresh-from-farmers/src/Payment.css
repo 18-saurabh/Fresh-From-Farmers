@@ -1,0 +1,47 @@
+.payment {
+    background-color: white;
+}
+
+.payment_container > h1 {
+    text-align: center;
+    padding: 10px;
+    font-family: 400;
+    background-color: rgb(234, 237, 237);
+    border-bottom: 1px solid lightgray;
+}
+
+.payment_container > h1 a {
+    text-decoration: none;
+}
+
+.payment_section {
+    display: flex;
+    padding: 20px;
+    margin: 0 20px;
+    border-bottom: 1px solid lightgray;
+}
+
+.payment_title {
+    flex: 0.2;
+}
+
+.payment_address,
+.payment_items {
+    flex: 0.8;
+}
+
+.pay-now-button {
+    background-color: #3399cc; /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor changes to pointer */
+    transition: background-color 0.3s; /* Smooth transition */
+    text-align: center; /* Center text */
+}
+
+.pay-now-button:hover {
+    background-color: #287bb5; /* Darker shade on hover */
+}
