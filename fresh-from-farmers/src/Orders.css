@@ -1,0 +1,43 @@
+.orders {
+  padding: 20px;
+  background-color: #f9f9f9;
+  max-width: 800px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.order {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.order_items {
+  display: flex;
+  flex-direction: column;
+}
+
+.order_item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.order_item_image {
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.order_item p {
+  margin: 0;
+}

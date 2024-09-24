@@ -11,7 +11,7 @@ function Home() {
           <Product
             id="12024"
             title="Onion ₹20/kg"
-            price={20}
+            price={1}
             image={
               "https://png.pngtree.com/png-clipart/20231003/original/pngtree-three-fresh-red-onion-bulbs-in-stack-isolated-with-clipping-path-png-image_13246826.png"
             }
