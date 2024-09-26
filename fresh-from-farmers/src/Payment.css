@@ -45,3 +45,8 @@
 .pay-now-button:hover {
     background-color: #287bb5; /* Darker shade on hover */
 }
+.empty-basket-notification {
+  color: red; /* Change color as needed */
+  font-size: 18px;
+  margin-top: 10px;
+}

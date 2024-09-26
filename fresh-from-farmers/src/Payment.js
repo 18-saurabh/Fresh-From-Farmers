@@ -4,14 +4,12 @@ import CheckoutProduct from "./CheckoutProduct";
 import { useStateValue } from "./StateProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "./Logo.png";
-import { sendPaymentDetails } from "./services/api";
-import axios from "axios";
 
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
   const navigate = useNavigate();
 
-  // Function to group basket items and calculate total
+  // Group basket items by ID
   const groupBasketItems = (basket) => {
     return basket.reduce((acc, item) => {
       const foundItem = acc.find((x) => x.id === item.id);
@@ -31,91 +29,38 @@ function Payment() {
 
   const groupedBasket = groupBasketItems(basket);
 
+  // Calculate the total price of the basket items
   const calculateTotal = () => {
     return basket.reduce((amount, item) => item.price + amount, 0);
   };
 
-  const loadRazorpay = () => {
+  // Function to load the Razorpay SDK and trigger payment
+  const loadRazorpay = async () => {
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
     script.onload = () => {
-      handlePayment();
-    };
-    script.onerror = () => {
-      alert("Failed to load Razorpay SDK");
-    };
-    document.body.appendChild(script);
-  };
-
-  const emptyBasket = () => {
-    dispatch({
-      type: "REMOVE_ALL_FROM_BASKET", // This will clear the basket
-    });
-  };
-
-  const handlePayment = async () => {
-    const orderData = {
-      amount: calculateTotal() * 100, // Total in paise
-      email: user?.email || "your.email@example.com",
-      items: groupedBasket,
-    };
-
-    try {
-      const orderResponse = await axios.post(
-        "http://localhost:5000/api/payment/create-order",
-        orderData
-      );
-
-      if (!orderResponse.data.id) {
-        throw new Error("Failed to create order");
-      }
-
-      const orderId = orderResponse.data.id;
+      const totalAmount = calculateTotal() * 100; // Razorpay works in paise
 
       const options = {
-        key: process.env.REACT_APP_RAZORPAY_KEY_ID, // Ensure this is set correctly
-        amount: orderData.amount,
+        key: process.env.REACT_APP_RAZORPAY_KEY_ID, // Using the key from .env
+        amount: totalAmount,
         currency: "INR",
         name: "Fresh From Farmers",
         description: "Test Transaction",
         image: Logo,
-        order_id: orderId,
-        handler: async function (response) {
+        handler: function (response) {
           alert(
             `Payment successful! Payment ID: ${response.razorpay_payment_id}`
           );
-
-          const paymentDetails = {
-            payment_id: response.razorpay_payment_id,
-            order_id: orderId,
-            amount: orderData.amount / 100, // Convert to rupees
-            signature: response.razorpay_signature,
-            user: {
-              name: user?.name || "Your Name",
-              email: user?.email || "your.email@example.com",
-              contact: "9999999999",
-            },
-            items: groupedBasket.map((item) => ({
-              id: item.id,
-              title: item.title,
-              price: item.totalPrice,
-              quantity: item.quantity,
-            })),
-          };
-
-          try {
-            await sendPaymentDetails(paymentDetails);
-            emptyBasket(); // Empty the basket after successful payment
-            navigate("/orders"); // Redirect to orders page
-          } catch (error) {
-            alert(
-              "Error sending payment details to the server: " + error.message
-            );
-          }
+          dispatch({ type: "REMOVE_ALL_FROM_BASKET" });
+          navigate("/orders", {
+            state: { paymentId: response.razorpay_payment_id, basket },
+          });
         },
         prefill: {
-          name: user?.name || "Your Name",
-          email: user?.email || "your.email@example.com",
+          name: user?.name || "Guest User",
+          email: user?.email || "guest@example.com",
           contact: "9999999999",
         },
         theme: {
@@ -125,9 +70,16 @@ function Payment() {
 
       const rzp = new window.Razorpay(options);
       rzp.open();
-    } catch (error) {
-      alert("Error creating order: " + error.message);
-    }
+    };
+
+    script.onerror = (error) => {
+      console.error("Failed to load Razorpay SDK:", error);
+      alert(
+        "Failed to load Razorpay SDK. Please check your network connection."
+      );
+    };
+
+    document.body.appendChild(script);
   };
 
   return (
@@ -136,6 +88,8 @@ function Payment() {
         <h1>
           Checkout (<Link to="/checkout">{basket?.length} items</Link>)
         </h1>
+
+        {/* Delivery Address Section */}
         <div className="payment_section">
           <div className="payment_title">
             <h3>Delivery Address</h3>
@@ -147,6 +101,7 @@ function Payment() {
           </div>
         </div>
 
+        {/* Review Items Section */}
         <div className="payment_section">
           <div className="payment_title">
             <h3>Review Items and Delivery</h3>
@@ -167,14 +122,21 @@ function Payment() {
           </div>
         </div>
 
+        {/* Payment Method Section */}
         <div className="payment_section">
           <div className="payment_title">
             <h3>Payment Method</h3>
           </div>
           <div className="payment_details">
-            <button className="pay-now-button" onClick={loadRazorpay}>
-              Pay Now
-            </button>
+            {basket.length === 0 ? ( // Check if the basket is empty
+              <p className="empty-basket-notification">
+                Your basket is empty. Please add items to proceed with payment.
+              </p>
+            ) : (
+              <button className="pay-now-button" onClick={loadRazorpay}>
+                Pay Now
+              </button>
+            )}
           </div>
         </div>
       </div>
